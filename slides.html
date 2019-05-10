@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mapping the Internet</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      a {
+        color: #a07cc0;
+      }
+      li {
+        font-size: 24pt;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .inverse {
+        background: #000;
+        color: #fff;
+      }
+      .remark-slide-content {
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .stripe {
+        height: 5px;
+        width: 100%;
+        background-color: indigo;
+        border-top: 1px solid rebeccapurple;
+        border-bottom: 1px solid rebeccapurple;
+        position: absolute;
+        margin-top: 125px;
+        left: 0;
+        right: 0;
+      }
+      .remark-slide-right {
+          bottom: 12px;
+          position: absolute;
+          left: 20px;
+      }
+      .carmalou {
+          color: #CCBADC;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+      class: center, middle, inverse, inverse
+
+      # Mapping the Internet
+      ---
+      class: center, middle, inverse, inverse
+      
+      # Mapping the Internet
+      
+      ???
+      Hey everyone. I'm super excited to talk to you about this today.
+      
+      Internet access is something that is very close to my heart. I know how fleeting it can be and how difficult everyday activities are when you don't have it. It goes beyond being the only person in the office not to have seen Stranger Things, or not having Facebook on your phone. A lack of internet access can become a real issue in someone's life, and I've been interested in how to fix this issue for a long time.
+      ---
+      layout: false
+      class: center, middle, inverse
+      # Carmen Bourlon
+      ## Twitter: [@carmalou](https://twitter.com/carmalou)
+      ## Let's Take This Offline: [serviceworkerbook.com](https://serviceworkerbook.com)
+      ## [margiemap.com](https://www.margiemap.com)
+      ---
+      class: center,middle,inverse
+
+      # This is a story of mapping the Internet in 5 acts.
+      ---
+      class: center,middle,inverse
+
+      # Act[0]: Why
+      ---
+      class: center,middle,inverse
+
+      # Act[1]: What
+      ---
+      class: center,middle,inverse
+
+      # Act[2]: How
+      ---
+      class: center,middle,inverse
+
+      # Act[3]: The Findings
+      ---
+      class: center,middle,inverse
+
+      # Act[4]: The Future
+      ---
+      class: center, middle, inverse
+      # Carmen Bourlon
+      ## Twitter: [@carmalou](https://twitter.com/carmalou)
+      ## Let's Take This Offline: [serviceworkerbook.com](https://serviceworkerbook.com)
+      ## [MargieMap.com](https://www.margiemap.com)
+
+</textarea>
+<script src="./content/remark-latest.min.js"></script>
+<script>
+  var slideshow = remark.create();
+  var arr = document.getElementsByClassName('remark-slide-content');
+  for(var i = 0; i < arr.length; i++) {
+    var tmpEl = document.createElement('div');
+    var innerLink = document.createElement('a');
+    innerLink.setAttribute('href', 'https://twitter.com/carmalou');
+    var innerText = document.createTextNode('Twitter: carmalou');
+    tmpEl.classList.add('remark-slide-right');
+    innerLink.classList.add('carmalou');
+    innerLink.appendChild(innerText);
+    tmpEl.appendChild(innerLink);
+    arr[i].appendChild(tmpEl);
+  }
+</script>
+</body>
+</html>
