@@ -63,38 +63,174 @@
       ???
       Hey everyone. I'm super excited to talk to you about this today.
       
-      Internet access is something that is very close to my heart. I know how fleeting it can be and how difficult everyday activities are when you don't have it. It goes beyond being the only person in the office not to have seen Stranger Things, or not having Facebook on your phone. A lack of internet access can become a real issue in someone's life, and I've been interested in how to fix this issue for a long time.
+      MargieMap is a pet-project of mine where I track income in relation to surrounding libraries. I'm really excited to share the inspirations behind the map, how I built it, and what I found.
       ---
       layout: false
       class: center, middle, inverse
       # Carmen Bourlon
+      ## [margiemap.com](https://www.margiemap.com)
       ## Twitter: [@carmalou](https://twitter.com/carmalou)
       ## Let's Take This Offline: [serviceworkerbook.com](https://serviceworkerbook.com)
-      ## [margiemap.com](https://www.margiemap.com)
+
+      ???
+      My name is Carmen and I'm a full stack developer in Oklahoma City. I'm the author of "Let's Take This Offline", a book about service workers, and I have a really strong interest in offline tech in general. That's a big part of the reason I chose to build MargieMap.
+      ---
+      class: left,middle,inverse
+
+      ```javascript
+      // what we're talking about today
+
+      var Acts = [ "Why", "What", "How", "The Findings", "The Future" ];
+      ```
+
+      ???
       ---
       class: center,middle,inverse
 
-      # This is a story of mapping the Internet in 5 acts.
+      # Acts[0]: Why
+
+      ???
+      Before I explain what I did or how I did it, I think it makes a lot of sense to talk about the "Why" behind the project.
+      ---
+      class: center,middle,inverse
+      
+      # The Internet is kind of a big deal
+      
+      ![alt text](./img/anchorman.gif "Internet is 'kind of' a big deal")
+      
+      ???
+      Can you raise your hand if you were online today? 
+      
+      It's kind of unfair since I'm talking to a room full of tech people, but it holds true for basically every industry today. And perhaps even more so outside of work.
+      
+      So let's ask another question: could you raise your hand if you *didn't* go online at all last weekend?
+
+      And then last question ... who in here *doesn't* have a smartphone they use to access the internet?
+      ---
+      class: left,middle,inverse
+
+      # Internet and Smartphones
+
+      ???
+      We can't really talk about the Internet without also talking about smartphones. Since their inception smartphones have become ubiquitous with being online, and a lot of people will access the internet without even realizing they access it -- according to a Pew Study. (FIND THIS STUDY)
+      ---
+      class: left,middle,inverse
+
+      # Internet and Smartphones
+
+      * 77% of Americans have smartphones
+
+      <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+      ---
+      class: left,middle,inverse
+
+      # Internet and Smartphones
+
+      * 77% of Americans have smartphones
+      * 20% are "smartphone-dependent"
+
+      <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+      ---
+      class: left,middle,inverse
+
+      # Internet and Smartphones
+
+      * 77% of Americans have smartphones
+      * 20% are "smartphone-dependent"
+        * Smartphone, but no internet at home
+
+      <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+      ---
+      class: left,middle,inverse
+
+      # Internet and Smartphones
+
+      * 77% of Americans have smartphones
+      * 20% are "smartphone-dependent"
+        * Smartphone, but no internet at home
+        * Smartphone, but no internet nearby
+
+      <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+      ---
+      class: left,middle,inverse
+
+      # Internet and Smartphones
+
+      * 77% of Americans have smartphones
+      * 20% are "smartphone-dependent"
+        * Smartphone, but no internet at home
+        * Smartphone, but no internet nearby
+        * Both
+
+      <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+      ---
+      class: left, middle, inverse, inverse
+      
+      # Predictors of limited access
+      
+      - Age:
+        - 28% aged 18-29 are smartphone-dependent
+      
+      <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+      ---
+      class: left, middle, inverse, inverse
+      
+      # Predictors of limited access
+      
+      - Ethnicity:
+        - 35% of Latino Americans are smartphone-dependent
+        - 24% of Black Americans are smartphone-dependent
+      
+      <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+      ---
+      class: left, middle, inverse, inverse
+      
+      # Predictors of limited access
+      
+      - Income: 
+        - Nearly 1/3 of people with income under 30k are smartphone-dependent
+      
+      <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+      ---
+      class: left, middle, inverse, inverse
+
+      # So what does it all mean?
+
+      ???
+      After I read the Pew study about individuals who struggle to remain connected, I can't say I was super surprised. It can cost upwards of $200/month for someone to connect to the internet. But all of this information did lead me to wonder, how do libraries fit into this?
       ---
       class: center,middle,inverse
 
-      # Act[0]: Why
+      # Acts[1]: What
       ---
       class: center,middle,inverse
 
-      # Act[1]: What
+      # We know that individuals who make less than $30k/yr are more likely to be smartphone dependent.
       ---
       class: center,middle,inverse
 
-      # Act[2]: How
+      # But ... how do libraries fit into this?
+
+      ???
+      You might be wondering ... why libraries? Libraries are one of the few places where someone can go and access the internet and just *be*. It doesn't cost money to get in or stay and there are resources beyond the internet. And unlike a lot of places that provide internet along with your meal or coffee, you have to have laptop to be able to use the internet. The library has computers available for use.
+      ---
+      class: left,middle,inverse
+      
+      # My theory: 
+      
+      # Communities with median incomes at or under $30k will have fewer libraries.
       ---
       class: center,middle,inverse
 
-      # Act[3]: The Findings
+      # Acts[2]: How
       ---
       class: center,middle,inverse
 
-      # Act[4]: The Future
+      # Acts[3]: The Findings
+      ---
+      class: center,middle,inverse
+
+      # Acts[4]: The Future
       ---
       class: center, middle, inverse
       # Carmen Bourlon
