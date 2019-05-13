@@ -47,6 +47,10 @@
       .carmalou {
           color: #CCBADC;
       }
+      img {
+          max-width: 100%;
+          height: auto;
+      }
     </style>
   </head>
   <body>
@@ -223,6 +227,107 @@
       class: center,middle,inverse
 
       # Acts[2]: How
+      ---
+      class: left,middle,inverse
+
+      # The Plan:
+      ---
+      class: left,middle,inverse
+
+      # The Plan:
+
+      1. Gather Census Data to find income by area
+      ---
+      class: left,middle,inverse
+
+      # The Plan:
+
+      1. Gather Census Data to find income by area
+      1. Gather Library Data to find libraries by area
+      ---
+      class: left,middle,inverse
+
+      # The Plan:
+
+      1. Gather Census Data to find income by area
+      1. Gather Library Data to find libraries by area
+      1. Put them on a map
+      ---
+      class: center,middle,inverse
+
+      # Sounds easy, right?
+
+      ![alt text](./img/laughing.gif "Have a laugh at my expense.")
+
+      ???
+      This is where I should mention that, at this point in time, I had very little experience with geo. I knew JavaScript really well, but I didn't know much about geo, much less about census data or any of what was to come. But I've never been a person to think, "oh I can't do that." I generally think, "oh that doesn't sound _that_ hard. I can probably figure it out."
+      ---
+      class: left,middle,inverse
+
+      # Census Data
+
+      * [https://factfinder.census.gov](https://factfinder.census.gov)
+
+      ???
+      Has anyone in here ever worked with gov't data?
+
+      It's pretty rough, right?
+
+      In my case, I had to figure out how to line up the geo id to the corresponding polygon. Also this particular spreadsheet had 53 columns, and it was probably an average-sized spreadsheet. I ended up with probably 8-10 spreadsheets, so it was quite a bit of data to sort through.
+      ---
+      class: center,middle,inverse
+
+      # Polygon Data
+      ---
+      class: center,middle,inverse
+
+      # Polygon Data
+
+      * [http://eric.clst.org/tech/usgeojson/](http://eric.clst.org/tech/usgeojson/)
+      ---
+      class: left,middle,inverse
+
+      # This is where it got really interesting:
+      ---
+      class: left,middle,inverse
+
+      # This is where it got really interesting:
+
+        1. I initially could only find shapefiles
+        ---
+      class: left,middle,inverse
+
+      # This is where it got really interesting:
+
+        1. I initially could only find shapefiles
+        1. Those were converted to geojson
+        ---
+      class: left,middle,inverse
+
+      # This is where it got really interesting:
+
+        1. I initially could only find shapefiles
+        1. Those were converted to geojson
+        1. Combined the income data with the geojson data
+        
+        ???
+        And this is where things got _really_ interesting. I was hoping to upload geojson to mapbox but as it would turn out, the geojson was too big to be uploaded! Also, I ran out of memory at one point while I was running the script to combine the income data with the polygon data. So that was fun.
+        ---
+      class: left,middle,inverse
+
+      # This is where it got really interesting:
+
+        1. I initially could only find shapefiles
+        1. Those were converted to geojson
+        1. Combined the income data with the geojson data
+        1. [Tippecanoe](https://github.com/mapbox/tippecanoe) to convert the geojson to maptiles
+        
+        ???
+        As it turned out, maptiles were the way to go as far as size, and fortunately tippecanoe has a CLI tool that made the conversion pretty easy. I didn't get there right away though. First I tried making smaller geojson files -- even by state! But it was a pretty difficult way to go about things. Once I tried using tippecanoe, things got a lot easier.
+      ---
+      class: center,middle,inverse
+
+      ![alt text](./img/census-data.png "really ugly census data.")
       ---
       class: center,middle,inverse
 
