@@ -349,19 +349,114 @@ class: left,middle,inverse
 ???
 As it turned out, maptiles were the way to go as far as size, and fortunately tippecanoe has a CLI tool that made the conversion pretty easy. I didn't get there right away though. First I tried making smaller geojson files -- even by state! But it was a pretty difficult way to go about things. Once I tried using tippecanoe, things got a lot easier.
 ---
+class: left,middle,inverse
+
+# This is where it got really interesting:
+
+1. I initially could only find shapefiles
+1. Those were converted to geojson
+1. Combined the income data with the geojson data
+1. [Tippecanoe](https://github.com/mapbox/tippecanoe) to convert the geojson to maptiles
+1. Find [GeoJSON](https://www.imls.gov/) for libraries!
+
+???
+There is this fantastic institute for libraries and museums that had geojson already (no conversion!) of the libraries in the US.
+---
+class: left,middle,inverse
+
+# This is where it got really interesting:
+
+1. I initially could only find shapefiles
+1. Those were converted to geojson
+1. Combined the income data with the geojson data
+1. [Tippecanoe](https://github.com/mapbox/tippecanoe) to convert the geojson to maptiles
+1. Find [GeoJSON](https://www.imls.gov/) for libraries!
+1. Upload it all to [Mapbox](link)!
+---
 class: center,middle,inverse
 
 # Acts[3]: The Findings
+
+???
+Once I had all the data on the map, I was able to start using Turf to figure out which counties have the fewest libraries and compare that to the income of the county.
+---
+class: left,middle,inverse
+
+# Finding the libraries in a polygon
+
+```JavaScript
+// the list of libraries
+var points = turf.points([ / ... / ]);
+
+// the polygon to search
+var searchWithin = turf.polygon([ / ... / ]);
+
+// an array containing all of the points found within the polygon
+var ptsWithin = turf.pointsWithinPolygon(points, searchWithin);
+```
+<sub>Source: [http://turfjs.org/docs/#pointsWithinPolygon](http://turfjs.org/docs/#pointsWithinPolygon)</sub>
+---
+class: center, middle, inverse, inverse
+
+# The million dollar question:
+# Is there any correlation <br /> between income and library access?
+---
+class: center, middle, inverse
+
+# So far, yes
+---
+class: left, middle, inverse
+
+# What I've found:
+
+## - Top 10 Counties for income: 166 libraries total
+## - Bottom 10 Counties for income: 16 libraries total
+
+???
+---
+class: left, middle, inverse
+
+# What I've found:
+
+## Counties under $30k:
+## - 81 counties under $30k
+## - Median number of libraries: 1
+
+???
+The gap becomes even more apparent when we look at only counties below the poverty line -- those counties all have less than 5 libraries.
+---
+class: left, middle, inverse
+
+# What I've found:
+
+## Counties over $100k:
+## - 19 counties over $100k
+## - Median number of libraries: 5
 ---
 class: center,middle,inverse
 
 # Acts[4]: The Future
 ---
+class: center,middle,inverse
+
+# Look at homes with computers
+---
+class: center,middle,inverse
+
+# Look at homes with computers
+# Look at homes with internet
+---
+class: center,middle,inverse
+
+# Look at homes with computers
+# Look at homes with internet
+# Control for population
+---
 class: center, middle, inverse
 # Carmen Bourlon
+## [MargieMap.com](https://www.margiemap.com)
 ## Twitter: [@carmalou](https://twitter.com/carmalou)
 ## Let's Take This Offline: [serviceworkerbook.com](https://serviceworkerbook.com)
-## [MargieMap.com](https://www.margiemap.com)
 
 </textarea>
 <script src="./content/remark-latest.min.js"></script>
