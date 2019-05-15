@@ -379,7 +379,7 @@ class: left,middle,inverse
 
 1. I initially could only find shapefiles
 1. Those were converted to geojson
-1. Combined income data with geojson data
+1. Combined income data with geo data
 
 ???
 At this point I had geojson files, and I also had income data in the form of json. I needed to combine them. So I had to find a way to link the income data geo ID to the polygon geo ID and they didn't always 100% match up. So I wrote a script to combine the data into one enormous geojson file. Except that didn't work initially, because I actually ran out of memory on my computer when I tried to stream in the files in my node script. I eventually worked it all out by doing the files state by state and greatly reducing the amount of data I was trying to pull into the geojson file. In the end it was basically just the location data, such as census tract number, county and state, and income data.
@@ -392,7 +392,7 @@ class: left,middle,inverse
 
 1. I initially could only find shapefiles
 1. Those were converted to geojson
-1. Combined the income data with the geojson data
+1. Combined income data with geo data
 1. [Tippecanoe](https://github.com/mapbox/tippecanoe) to convert the geojson to maptiles
 
 ???
@@ -404,12 +404,14 @@ class: left,middle,inverse
 
 1. I initially could only find shapefiles
 1. Those were converted to geojson
-1. Combined the income data with the geojson data
+1. Combined income data with geo data
 1. [Tippecanoe](https://github.com/mapbox/tippecanoe) to convert the geojson to maptiles
 1. Find [GeoJSON](https://www.imls.gov/) for libraries!
 
 ???
-There is this fantastic institute for libraries and museums that had geojson already (no conversion!) of the libraries in the US.
+I mentioned before how difficult I found it to find the American Community Survey data, but that was nothing compared to finding library data. I managed to find library data for Oklahoma initially, and I wrote this scrapper to get that data and convert it into something usable, but I could not find anything at the national level. I had resorted to going state by state to try to find a list of libraries by state.
+    
+Fortunately one day I was googling at work -- also no one please tell my work that. But anyway, I was googling at work and just by sheer luck, I stumbled upon the Institute of Museums and Libraries. This institute not only had a complete list of libraries, but it actually provides an API! It also provided geojson for the libraries, so once I found this site, I was home free to finish the first iteration of the project.
 ---
 class: left,middle,inverse
 
@@ -417,17 +419,20 @@ class: left,middle,inverse
 
 1. I initially could only find shapefiles
 1. Those were converted to geojson
-1. Combined the income data with the geojson data
+1. Combined income data with geo data
 1. [Tippecanoe](https://github.com/mapbox/tippecanoe) to convert the geojson to maptiles
 1. Find [GeoJSON](https://www.imls.gov/) for libraries!
-1. Upload it all to [Mapbox](link)!
+1. Upload it all to [Mapbox](https://www.mapbox.com/)!
+    
+???
+Once I had all this data, I uploaded it to mapbox and marveled at how awesome the map is!
 ---
 class: center,middle,inverse
 
 # Acts[3]: The Findings
 
 ???
-Once I had all the data on the map, I was able to start using Turf to figure out which counties have the fewest libraries and compare that to the income of the county.
+I pretty quickly realized that just _looking_ at the map wasn't going to help me answer the questions I had about whether or not library access is connected to income. I needed to find a way to analyze the data, so I started looking around and I found Turf.
 ---
 class: left,middle,inverse
 
@@ -444,15 +449,24 @@ var searchWithin = turf.polygon([ / ... / ]);
 var ptsWithin = turf.pointsWithinPolygon(points, searchWithin);
 ```
 <sub>Source: [http://turfjs.org/docs/#pointsWithinPolygon](http://turfjs.org/docs/#pointsWithinPolygon)</sub>
+
+???
+This was the Turf function I used to the most. I sorted the polygons I was interested in looking at by income, and once I knew which polygons -- these were counties by the way -- I was able to run all of the libraries through this method for each county I was interested in and find which counties had the most and the least libraries.
 ---
-class: center, middle, inverse, inverse
+class: left, middle, inverse
 
 # The million dollar question:
 # Is there any correlation <br /> between income and library access?
 ---
 class: center, middle, inverse
+    
+# The million dollar question:
+# Is there any correlation <br /> between income and library access?
 
 # So far, yes
+    
+???
+I say so far, because I am still doing a lot of research on this to rule out other possibilities. Most specifically at this point, I am working on controlling for population. I will say that I would be very surprised, based on what I've found so far, if population completely explains away everything.
 ---
 class: left, middle, inverse
 
@@ -462,6 +476,7 @@ class: left, middle, inverse
 ## - Bottom 10 Counties for income: 16 libraries total
 
 ???
+The first thing I did was look at the bottom 10 counties by income and the top 10 counties by income. This seemed like a quick way to see if there was a massive difference in the number of libraries -- and as you can see, there is. There is a literal order of magnitude difference between the number of total libraries for the top 10 counties versus the bottom 10. This made me feel like I was on the right track for what I was looking at.
 ---
 class: left, middle, inverse
 
@@ -472,7 +487,7 @@ class: left, middle, inverse
 ## - Median number of libraries: 1
 
 ???
-The gap becomes even more apparent when we look at only counties below the poverty line -- those counties all have less than 5 libraries.
+Next I wanted to look the counties in the US with median incomes under 30k. I chose 30k because the studies I read said that this is kind of the tipping point for being smartphone-dependent. And as you can see, the median for the counties is quite low. Most only have 1 library to support their entire county.
 ---
 class: left, middle, inverse
 
@@ -481,6 +496,9 @@ class: left, middle, inverse
 ## Counties over $100k:
 ## - 19 counties over $100k
 ## - Median number of libraries: 5
+    
+???
+Next I wanted to look at counties over 100k, which is almost double the median income in the US. Their median number of libraries was 5. This honestly wasn't as high as I was expecting, but it is pretty starkly different than having a single library to support an entire county. It's also pretty interesting because people living in these counties are statistically less likely to need the library access that the lower income counties need.
 ---
 class: center,middle,inverse
 
@@ -488,24 +506,46 @@ class: center,middle,inverse
 ---
 class: center,middle,inverse
 
-# Look at homes with computers
----
-class: center,middle,inverse
+# Acts[4]: The Future
 
-# Look at homes with computers
-# Look at homes with internet
----
-class: center,middle,inverse
-
-# Look at homes with computers
-# Look at homes with internet
 # Control for population
+    
+???
+This is a question I get really frequently: how does population affect these numbers? Is it possible that the explanation lies in population instead of income? Yes, it is possible, although I would be really surprised if population explained it all away. But it is something I want to look at further to make sure I'm not missing a big piece of this.
+---
+class: center,middle,inverse
+
+# Acts[4]: The Future
+
+# Control for population
+# Start using PostGIS
+
+???
+I mentioned a few times how I ran out of memory on my computer and that's because I've been using node scripts and geojson because those are what I am most comfortable with. Unfortunately these are not super fast methods. In fact when I was first getting started trying to get these scripts right, it took upwards of 15 minutes to test a script, only to find out I had done something wrong and needed to tweak it. That's a super frustrating process! So I want to work on getting all of this data into a database and using postgis to help make it all easier to search and query.
+---
+class: center,middle,inverse
+
+# Acts[4]: The Future
+
+# Control for population
+# Start using PostGIS
+# Include US Commonwealths
+    
+???
+Unfortunately this data is even harder to find than the US data I found. The US Census doesn't have super up-to-date information on the Commonwealths -- in fact some of the most recent surveys are 10+ years old. Additionally, library data is difficult to find for the commonwealths because they aren't included in the Institute of Museums and Libraries. So it's difficult for me to feel like this map is _complete_ without that information. So that's definitely something I want to work on in the future.
 ---
 class: center, middle, inverse
 # Carmen Bourlon
 ## [MargieMap.com](https://www.margiemap.com)
 ## Twitter: [@carmalou](https://twitter.com/carmalou)
 ## Let's Take This Offline: [serviceworkerbook.com](https://serviceworkerbook.com)
+    
+???
+# If time: [check out margiemap](https://www.margiemap.com/)
+    
+Thanks so much for having me! I'm super excited to share this project with all of you. Please check out my blog at carmalou.com to read more about what I'm working on and more about this map.
+    
+I'm around and happy to talk about the project and answer any questions you have or just generally nerd out. Thank you again!
 
 </textarea>
 <script src="./content/remark-latest.min.js"></script>
