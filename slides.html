@@ -292,12 +292,11 @@ So this is probably a good place for me to mention that, at least at this point 
 class: left,middle,inverse
 
 # The Plan:
----
-class: left,middle,inverse
-
-# The Plan:
 
 1. Gather Census Data to find income by area
+
+???
+As I was forming the idea, I tried to figure out what I was going to need. Obviously, I would need income data if I was going to plot it on a map. 
 ---
 class: left,middle,inverse
 
@@ -305,6 +304,9 @@ class: left,middle,inverse
 
 1. Gather Census Data to find income by area
 1. Gather Library Data to find libraries by area
+
+???
+I would also need Library data, and specifically library _location_ data to plot on the map along with the income data if this was going to be of any use.
 ---
 class: left,middle,inverse
 
@@ -313,6 +315,9 @@ class: left,middle,inverse
 1. Gather Census Data to find income by area
 1. Gather Library Data to find libraries by area
 1. Put them on a map
+    
+???
+And then lastly, I was going to need a map to actually put all of this data on, assuming I could even find it.
 ---
 class: center,middle,inverse
 
@@ -321,13 +326,16 @@ class: center,middle,inverse
 ![alt text](./img/laughing.gif "Have a laugh at my expense.")
 
 ???
-This is where I should mention that, at this point in time, I had very little experience with geo. I knew JavaScript really well, but I didn't know much about geo, much less about census data or any of what was to come. But I've never been a person to think, "oh I can't do that." I generally think, "oh that doesn't sound _that_ hard. I can probably figure it out."
+This is where I should mention again that, at this point in time, I had very little experience with geo. I knew JavaScript really well, but I didn't know much about geo, much less about census data or any of what was to come. But I've never been a person to think, "oh I can't do that." I generally think, "oh that doesn't sound _that_ hard. I can probably figure it out."
 ---
 class: left,middle,inverse
 
 # Census Data
 
 * [https://factfinder.census.gov](https://factfinder.census.gov)
+    
+???
+At the time, finding the census data was "hard" because it was buried in this web app that I've linked too. However the American Community Survey -- the Survey I used for all of the data -- is a really fantastic body of work put out by the US Census each year. This really means two things: one, because it's updated year over year, I'm able to track changes in my map. And two, I was super naive when I was groaning about how hard this data was to find, because comparitively, this was super easy.
 ---
 class: center,middle,inverse
 
@@ -343,29 +351,27 @@ In my case, I had to figure out how to line up the geo id to the corresponding p
 class: left,middle,inverse
 
 # Polygon Data
----
-class: left,middle,inverse
-
-# Polygon Data
 
 * [http://eric.clst.org/tech/usgeojson/](http://eric.clst.org/tech/usgeojson/)
----
-class: left,middle,inverse
-
-# This is where it got really interesting:
----
-class: left,middle,inverse
-
-# This is where it got really interesting:
-
-1. I initially could only find shapefiles
+    
+???
+This is an awesome site that has geojson for the US, which is great. I actually ended up using this geojson later when I went back and made changes, but I wish I had found this right away. Because I actually went about this the hard way.
 ---
 class: left,middle,inverse
 
 # This is where it got really interesting:
 
 1. I initially could only find shapefiles
-1. Those were converted to geojson
+---
+class: left,middle,inverse
+
+# This is where it got really interesting:
+
+1. I initially could only find shapefiles
+1. Those were converted to geojson (using [mapshaper](link))
+    
+???
+So I didn't really know what to do with the shapefiles, and I had a lot of data I had converted into json, so I really needed the actual polygons to be in geojson. Fortunately mapshaper is a pretty easy tool to use and did that conversion for me.
 ---
 class: left,middle,inverse
 
@@ -376,7 +382,9 @@ class: left,middle,inverse
 1. Combined income data with geojson data
 
 ???
-And this is where things got _really_ interesting. I was hoping to upload geojson to mapbox but as it would turn out, the geojson was too big to be uploaded! Also, I ran out of memory at one point while I was running the script to combine the income data with the polygon data. So that was fun.
+At this point I had geojson files, and I also had income data in the form of json. I needed to combine them. So I had to find a way to link the income data geo ID to the polygon geo ID and they didn't always 100% match up. So I wrote a script to combine the data into one enormous geojson file. Except that didn't work initially, because I actually ran out of memory on my computer when I tried to stream in the files in my node script. I eventually worked it all out by doing the files state by state and greatly reducing the amount of data I was trying to pull into the geojson file. In the end it was basically just the location data, such as census tract number, county and state, and income data.
+
+But it still wasn't small enough! This is where things got _really_ interesting. I was hoping to upload geojson to mapbox but as it would turn out, the geojson was too big to be uploaded!
 ---
 class: left,middle,inverse
 
@@ -388,7 +396,7 @@ class: left,middle,inverse
 1. [Tippecanoe](https://github.com/mapbox/tippecanoe) to convert the geojson to maptiles
 
 ???
-As it turned out, maptiles were the way to go as far as size, and fortunately tippecanoe has a CLI tool that made the conversion pretty easy. I didn't get there right away though. First I tried making smaller geojson files -- even by state! But it was a pretty difficult way to go about things. Once I tried using tippecanoe, things got a lot easier.
+As it turned out, maptiles were the way to go as far as size, and fortunately tippecanoe has a CLI tool that made the conversion pretty easy. I didn't get there right away though. I mentioned before that I tried making smaller geojson files -- even by state! But it was a pretty difficult way to go about things. Once I tried using tippecanoe, things got a lot easier.
 ---
 class: left,middle,inverse
 
