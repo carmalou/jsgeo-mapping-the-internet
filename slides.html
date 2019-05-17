@@ -101,7 +101,7 @@ class: center, middle, inverse
 ## Let's Take This Offline: [serviceworkerbook.com](https://serviceworkerbook.com)
 
 ???
-My name is Carmen and I'm a full stack developer in Oklahoma City. I'm the author of "Let's Take This Offline", a book about service workers, and I have a really strong interest in offline tech in general. That's a big part of the reason I chose to build MargieMap.
+My name is Carmen and I'm a full stack developer in Oklahoma City. I'm the author of "Let's Take This Offline", a book about service workers, and I have a really strong interest in offline tech in general. Really my interest in offline and my interest in MargieMap are closely related.
 ---
 class: left,middle,inverse
 
@@ -112,6 +112,9 @@ var Acts = [ "Why", "What", "How", "The Findings", "The Future" ];
 ```
 
 ???
+Really this presentation is a story. It's a story about the rise of the internet and the effects that has had on people all around us. It's been positive in an uncountable number of ways. However, as you'll see, it's not all positive. And the thing I love most about being a web developer is having the tools to actually help drive accessibility. 
+
+But ... before I get into all that, let's start at the beginning of the story.
 ---
 class: center,middle,inverse
 
@@ -127,6 +130,8 @@ class: center,middle,inverse
 ![alt text](./img/anchorman.gif "Internet is 'kind of' a big deal")
 
 ???
+So we've already talked a bit about the absolutely different world we live in today versus when the internet was first realized, but I want to spend a little bit more time talking about that.
+
 Can you raise your hand if you were online today? 
 
 It's kind of unfair since I'm talking to a room full of tech people, but it holds true for basically every industry today. And perhaps even more so outside of work.
@@ -140,7 +145,9 @@ class: left,middle,inverse
 # Internet and Smartphones
 
 ???
-We can't really talk about the Internet without also talking about smartphones. Since their inception smartphones have become ubiquitous with being online, and a lot of people will access the internet without even realizing they access it -- according to a Pew Study. (FIND THIS STUDY)
+We can't really talk about the Internet without also talking about smartphones. As much as the internet changed the game, smartphones came along and provided an access point to the internet on the go -- and often for people who hadn't had consistent access prior.
+
+Since their inception smartphones have become ubiquitous with being online, and a lot of people will access the internet without even realizing they access it -- according to a Pew Study. (FIND THIS STUDY)
 ---
 class: left,middle,inverse
 
@@ -158,6 +165,9 @@ class: left,middle,inverse
 * 20% are "smartphone-dependent"
 
 <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+
+???
+So smartphone dependent in this case is probably pretty self-explanatory, but it means that the only access to the internet a person has is via their smartphone. According to the specific study I'm referencing, there are a couple of ways someone can be smartphone dependent.
 ---
 class: left,middle,inverse
 
@@ -165,9 +175,12 @@ class: left,middle,inverse
 
 * 77% of Americans have smartphones
 * 20% are "smartphone-dependent"
-* Smartphone, but no internet at home
+    * Smartphone, but no internet at home
 
 <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+
+???
+If someone has a smartphone, but does not have internet at home -- that's considered smartphone dependent. A lot of reasons people cite in other studies as to why they don't have internet have to do with the cost of internet. It can be prohibitively expensive, specifically in rural areas. And it isn't only the cost of the actual service, but the cost of renting the equipment can be really expensive as well.
 ---
 class: left,middle,inverse
 
@@ -175,10 +188,13 @@ class: left,middle,inverse
 
 * 77% of Americans have smartphones
 * 20% are "smartphone-dependent"
-* Smartphone, but no internet at home
-* Smartphone, but no internet nearby
+    * Smartphone, but no internet at home
+    * Smartphone, but no internet nearby
 
 <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+
+???
+The next definition is having a smartphone, but not having internet nearby. So this could be someone who lives in a rural area where there isn't a library or coffee shop nearby where they can go access the internet.
 ---
 class: left,middle,inverse
 
@@ -186,39 +202,55 @@ class: left,middle,inverse
 
 * 77% of Americans have smartphones
 * 20% are "smartphone-dependent"
-* Smartphone, but no internet at home
-* Smartphone, but no internet nearby
-* Both
+    * Smartphone, but no internet at home
+    * Smartphone, but no internet nearby
+    * Both
 
 <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+    
+???
+The last definition is both. These individuals might live in a rural area where getting home internet is cost-prohibitive, and also -- due to the fact that they live in a rural area -- they aren't close to a place that offers internet.
+    
+There is one more thing I wanted to bring up, and that is that this percentage of Americans is actually increasing year over year. The original study I read about this was back in 2015, and that study found that 12 percent of Americans were smartphone-dependent. A study from last year showed that that number increased to the 20% number that I reference here.
 ---
 class: left, middle, inverse, inverse
 
 # Predictors of limited access
 
 - Age:
-- 28% aged 18-29 are smartphone-dependent
+    - 28% aged 18-29 are smartphone-dependent
 
 <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+
+???
+You might be wondering what, if any, predictors there are for smartphone-dependence. There are three main predictors, and I've listed them here in ascending order. The first predictor is age.
+    
+Individuals between 18-29 are more likely to be smartphone-dependent. This makes a lot of sense because when you are younger, you likely make less money because you aren't yet established or perhaps you're in college and working only part time.
 ---
 class: left, middle, inverse, inverse
 
 # Predictors of limited access
 
 - Ethnicity:
-- 35% of Latino Americans are smartphone-dependent
-- 24% of Black Americans are smartphone-dependent
+    - 35% of Latino Americans are smartphone-dependent
+    - 24% of Black Americans are smartphone-dependent
 
 <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+    
+???
+The next predictor is ethnicity, and this specifically affects black and latino americans. This also makes a lot of sense because there is a wealth of research showing a wage gap for black and latino americans. 
 ---
 class: left, middle, inverse, inverse
 
 # Predictors of limited access
 
 - Income: 
-- Nearly 1/3 of people with income under 30k are smartphone-dependent
+    - Nearly 1/3 of people with income under 30k are smartphone-dependent
 
 <sub>Source: [http://www.pewinternet.org/fact-sheet/mobile/](http://www.pewinternet.org/fact-sheet/mobile/)</sub>
+    
+???
+This last one is where all of these predictors start to converge. I mentioned before that other studies showed that cost is a big reason people forego having internet in their home. So it makes a lot of sense that income would be the number one predictor of smartphone-dependence.
 ---
 class: left, middle, inverse, inverse
 
@@ -230,16 +262,19 @@ After I read the Pew study about individuals who struggle to remain connected, I
 class: center,middle,inverse
 
 # Acts[1]: What
----
-class: center,middle,inverse
-
-# We know that individuals who make less than $30k/yr are more likely to be smartphone dependent.
+    
+???
+So it was actually quite a while before I came up with the idea of MargieMap. I read the original Pew study from 2015 and I kept reading about it and turning it over in my mind. I studied up on mobile apps as a way to combat this issue, and these days I'm all in on PWAs to help combat the issue. Because if you can take away the need for the network -- at least for most things -- then the issue is greatly diminished.
+    
+However, what really inspired the idea for MargieMap was me talking to people about this -- and almost everyone was shocked at how great the issue actually was. And so I started thinking, what if there was a way to visualize this issue?
 ---
 class: center,middle,inverse
 
 # But ... how do libraries fit into this?
 
 ???
+My next thought was, I wonder if people dramatically affected by this have library access?
+    
 You might be wondering ... why libraries? Libraries are one of the few places where someone can go and access the internet and just *be*. It doesn't cost money to get in or stay and there are resources beyond the internet. And unlike a lot of places that provide internet along with your meal or coffee, you have to have laptop to be able to use the internet. The library has computers available for use.
 ---
 class: left,middle,inverse
@@ -247,20 +282,25 @@ class: left,middle,inverse
 # My theory: 
 
 # Communities with median incomes at or under $30k will have fewer libraries.
+    
+???
+So after I read more and more about the issues and thought about it, this was the theory I was working with when I started building the map. I based this mostly on the idea that lower income areas will pay less in taxes, and then in turn have fewer resources for libraries.
 ---
 class: center,middle,inverse
 
 # Acts[2]: How
----
-class: left,middle,inverse
-
-# The Plan:
+ 
+???
+So this is probably a good place for me to mention that, at least at this point in time, I didn't really have a lot of relevant geo experience. *foreshadowingggggggg*
 ---
 class: left,middle,inverse
 
 # The Plan:
 
 1. Gather Census Data to find income by area
+
+???
+As I was forming the idea, I tried to figure out what I was going to need. Obviously, I would need income data if I was going to plot it on a map. 
 ---
 class: left,middle,inverse
 
@@ -268,6 +308,9 @@ class: left,middle,inverse
 
 1. Gather Census Data to find income by area
 1. Gather Library Data to find libraries by area
+
+???
+I would also need Library data, and specifically library _location_ data to plot on the map along with the income data if this was going to be of any use.
 ---
 class: left,middle,inverse
 
@@ -276,6 +319,9 @@ class: left,middle,inverse
 1. Gather Census Data to find income by area
 1. Gather Library Data to find libraries by area
 1. Put them on a map
+    
+???
+And then lastly, I was going to need a map to actually put all of this data on, assuming I could even find it.
 ---
 class: center,middle,inverse
 
@@ -284,13 +330,16 @@ class: center,middle,inverse
 ![alt text](./img/laughing.gif "Have a laugh at my expense.")
 
 ???
-This is where I should mention that, at this point in time, I had very little experience with geo. I knew JavaScript really well, but I didn't know much about geo, much less about census data or any of what was to come. But I've never been a person to think, "oh I can't do that." I generally think, "oh that doesn't sound _that_ hard. I can probably figure it out."
+This is where I should mention again that, at this point in time, I had very little experience with geo. I knew JavaScript really well, but I didn't know much about geo, much less about census data or any of what was to come. But I've never been a person to think, "oh I can't do that." I generally think, "oh that doesn't sound _that_ hard. I can probably figure it out."
 ---
 class: left,middle,inverse
 
 # Census Data
 
 * [https://factfinder.census.gov](https://factfinder.census.gov)
+    
+???
+At the time, finding the census data was "hard" because it was buried in this web app that I've linked too. However the American Community Survey -- the Survey I used for all of the data -- is a really fantastic body of work put out by the US Census each year. This really means two things: one, because it's updated year over year, I'm able to track changes in my map. And two, I was super naive when I was groaning about how hard this data was to find, because comparitively, this was super easy.
 ---
 class: center,middle,inverse
 
@@ -306,22 +355,27 @@ In my case, I had to figure out how to line up the geo id to the corresponding p
 class: left,middle,inverse
 
 # Polygon Data
----
-class: left,middle,inverse
-
-# Polygon Data
 
 * [http://eric.clst.org/tech/usgeojson/](http://eric.clst.org/tech/usgeojson/)
----
-class: left,middle,inverse
-
-# This is where it got really interesting:
+    
+???
+This is an awesome site that has geojson for the US, which is great. I actually ended up using this geojson later when I went back and made changes, but I wish I had found this right away. Because I actually went about this the hard way.
 ---
 class: left,middle,inverse
 
 # This is where it got really interesting:
 
 1. I initially could only find shapefiles
+---
+class: left,middle,inverse
+
+# This is where it got really interesting:
+
+1. I initially could only find shapefiles
+1. Those were converted to geojson (using [mapshaper](link))
+    
+???
+So I didn't really know what to do with the shapefiles, and I had a lot of data I had converted into json, so I really needed the actual polygons to be in geojson. Fortunately mapshaper is a pretty easy tool to use and did that conversion for me.
 ---
 class: left,middle,inverse
 
@@ -329,17 +383,12 @@ class: left,middle,inverse
 
 1. I initially could only find shapefiles
 1. Those were converted to geojson
----
-class: left,middle,inverse
-
-# This is where it got really interesting:
-
-1. I initially could only find shapefiles
-1. Those were converted to geojson
-1. Combined income data with geojson data
+1. Combined income data with geo data
 
 ???
-And this is where things got _really_ interesting. I was hoping to upload geojson to mapbox but as it would turn out, the geojson was too big to be uploaded! Also, I ran out of memory at one point while I was running the script to combine the income data with the polygon data. So that was fun.
+At this point I had geojson files, and I also had income data in the form of json. I needed to combine them. So I had to find a way to link the income data geo ID to the polygon geo ID and they didn't always 100% match up. So I wrote a script to combine the data into one enormous geojson file. Except that didn't work initially, because I actually ran out of memory on my computer when I tried to stream in the files in my node script. I eventually worked it all out by doing the files state by state and greatly reducing the amount of data I was trying to pull into the geojson file. In the end it was basically just the location data, such as census tract number, county and state, and income data.
+
+But it still wasn't small enough! This is where things got _really_ interesting. I was hoping to upload geojson to mapbox but as it would turn out, the geojson was too big to be uploaded!
 ---
 class: left,middle,inverse
 
@@ -347,11 +396,11 @@ class: left,middle,inverse
 
 1. I initially could only find shapefiles
 1. Those were converted to geojson
-1. Combined the income data with the geojson data
+1. Combined income data with geo data
 1. [Tippecanoe](https://github.com/mapbox/tippecanoe) to convert the geojson to maptiles
 
 ???
-As it turned out, maptiles were the way to go as far as size, and fortunately tippecanoe has a CLI tool that made the conversion pretty easy. I didn't get there right away though. First I tried making smaller geojson files -- even by state! But it was a pretty difficult way to go about things. Once I tried using tippecanoe, things got a lot easier.
+As it turned out, maptiles were the way to go as far as size, and fortunately tippecanoe has a CLI tool that made the conversion pretty easy. I didn't get there right away though. I mentioned before that I tried making smaller geojson files -- even by state! But it was a pretty difficult way to go about things. Once I tried using tippecanoe, things got a lot easier.
 ---
 class: left,middle,inverse
 
@@ -359,30 +408,35 @@ class: left,middle,inverse
 
 1. I initially could only find shapefiles
 1. Those were converted to geojson
-1. Combined the income data with the geojson data
-1. [Tippecanoe](https://github.com/mapbox/tippecanoe) to convert the geojson to maptiles
-1. Find [GeoJSON](https://www.imls.gov/) for libraries!
-
-???
-There is this fantastic institute for libraries and museums that had geojson already (no conversion!) of the libraries in the US.
----
-class: left,middle,inverse
-
-# This is where it got really interesting:
-
-1. I initially could only find shapefiles
-1. Those were converted to geojson
-1. Combined the income data with the geojson data
+1. Combined income data with geo data
 1. [Tippecanoe](https://github.com/mapbox/tippecanoe) to convert the geojson to maptiles
 1. Find [GeoJSON](https://www.imls.gov/) for libraries!
-1. Upload it all to [Mapbox](link)!
+
+???
+I mentioned before how difficult I found it to find the American Community Survey data, but that was nothing compared to finding library data. I managed to find library data for Oklahoma initially, and I wrote this scrapper to get that data and convert it into something usable, but I could not find anything at the national level. I had resorted to going state by state to try to find a list of libraries by state.
+    
+Fortunately one day I was googling at work -- also no one please tell my work that. But anyway, I was googling at work and just by sheer luck, I stumbled upon the Institute of Museums and Libraries. This institute not only had a complete list of libraries, but it actually provides an API! It also provided geojson for the libraries, so once I found this site, I was home free to finish the first iteration of the project.
+---
+class: left,middle,inverse
+
+# This is where it got really interesting:
+
+1. I initially could only find shapefiles
+1. Those were converted to geojson
+1. Combined income data with geo data
+1. [Tippecanoe](https://github.com/mapbox/tippecanoe) to convert the geojson to maptiles
+1. Find [GeoJSON](https://www.imls.gov/) for libraries!
+1. Upload it all to [Mapbox](https://www.mapbox.com/)!
+    
+???
+Once I had all this data, I uploaded it to mapbox and marveled at how awesome the map is!
 ---
 class: center,middle,inverse
 
 # Acts[3]: The Findings
 
 ???
-Once I had all the data on the map, I was able to start using Turf to figure out which counties have the fewest libraries and compare that to the income of the county.
+I pretty quickly realized that just _looking_ at the map wasn't going to help me answer the questions I had about whether or not library access is connected to income. I needed to find a way to analyze the data, so I started looking around and I found Turf.
 ---
 class: left,middle,inverse
 
@@ -399,15 +453,24 @@ var searchWithin = turf.polygon([ / ... / ]);
 var ptsWithin = turf.pointsWithinPolygon(points, searchWithin);
 ```
 <sub>Source: [http://turfjs.org/docs/#pointsWithinPolygon](http://turfjs.org/docs/#pointsWithinPolygon)</sub>
+
+???
+This was the Turf function I used to the most. I sorted the polygons I was interested in looking at by income, and once I knew which polygons -- these were counties by the way -- I was able to run all of the libraries through this method for each county I was interested in and find which counties had the most and the least libraries.
 ---
-class: center, middle, inverse, inverse
+class: left, middle, inverse
 
 # The million dollar question:
 # Is there any correlation <br /> between income and library access?
 ---
 class: center, middle, inverse
+    
+# The million dollar question:
+# Is there any correlation <br /> between income and library access?
 
 # So far, yes
+    
+???
+I say so far, because I am still doing a lot of research on this to rule out other possibilities. Most specifically at this point, I am working on controlling for population. I will say that I would be very surprised, based on what I've found so far, if population completely explains away everything.
 ---
 class: left, middle, inverse
 
@@ -417,6 +480,7 @@ class: left, middle, inverse
 ## - Bottom 10 Counties for income: 16 libraries total
 
 ???
+The first thing I did was look at the bottom 10 counties by income and the top 10 counties by income. This seemed like a quick way to see if there was a massive difference in the number of libraries -- and as you can see, there is. There is a literal order of magnitude difference between the number of total libraries for the top 10 counties versus the bottom 10. This made me feel like I was on the right track for what I was looking at.
 ---
 class: left, middle, inverse
 
@@ -427,7 +491,7 @@ class: left, middle, inverse
 ## - Median number of libraries: 1
 
 ???
-The gap becomes even more apparent when we look at only counties below the poverty line -- those counties all have less than 5 libraries.
+Next I wanted to look the counties in the US with median incomes under 30k. I chose 30k because the studies I read said that this is kind of the tipping point for being smartphone-dependent. And as you can see, the median for the counties is quite low. Most only have 1 library to support their entire county.
 ---
 class: left, middle, inverse
 
@@ -436,6 +500,9 @@ class: left, middle, inverse
 ## Counties over $100k:
 ## - 19 counties over $100k
 ## - Median number of libraries: 5
+    
+???
+Next I wanted to look at counties over 100k, which is almost double the median income in the US. Their median number of libraries was 5. This honestly wasn't as high as I was expecting, but it is pretty starkly different than having a single library to support an entire county. It's also pretty interesting because people living in these counties are statistically less likely to need the library access that the lower income counties need.
 ---
 class: center,middle,inverse
 
@@ -443,24 +510,46 @@ class: center,middle,inverse
 ---
 class: center,middle,inverse
 
-# Look at homes with computers
----
-class: center,middle,inverse
+# Acts[4]: The Future
 
-# Look at homes with computers
-# Look at homes with internet
----
-class: center,middle,inverse
-
-# Look at homes with computers
-# Look at homes with internet
 # Control for population
+    
+???
+This is a question I get really frequently: how does population affect these numbers? Is it possible that the explanation lies in population instead of income? Yes, it is possible, although I would be really surprised if population explained it all away. But it is something I want to look at further to make sure I'm not missing a big piece of this.
+---
+class: center,middle,inverse
+
+# Acts[4]: The Future
+
+# Control for population
+# Start using PostGIS
+
+???
+I mentioned a few times how I ran out of memory on my computer and that's because I've been using node scripts and geojson because those are what I am most comfortable with. Unfortunately these are not super fast methods. In fact when I was first getting started trying to get these scripts right, it took upwards of 15 minutes to test a script, only to find out I had done something wrong and needed to tweak it. That's a super frustrating process! So I want to work on getting all of this data into a database and using postgis to help make it all easier to search and query.
+---
+class: center,middle,inverse
+
+# Acts[4]: The Future
+
+# Control for population
+# Start using PostGIS
+# Include US Commonwealths
+    
+???
+Unfortunately this data is even harder to find than the US data I found. The US Census doesn't have super up-to-date information on the Commonwealths -- in fact some of the most recent surveys are 10+ years old. Additionally, library data is difficult to find for the commonwealths because they aren't included in the Institute of Museums and Libraries. So it's difficult for me to feel like this map is _complete_ without that information. So that's definitely something I want to work on in the future.
 ---
 class: center, middle, inverse
 # Carmen Bourlon
 ## [MargieMap.com](https://www.margiemap.com)
 ## Twitter: [@carmalou](https://twitter.com/carmalou)
 ## Let's Take This Offline: [serviceworkerbook.com](https://serviceworkerbook.com)
+    
+???
+# If time: [check out margiemap](https://www.margiemap.com/)
+    
+Thanks so much for having me! I'm super excited to share this project with all of you. Please check out my blog at carmalou.com to read more about what I'm working on and more about this map.
+    
+I'm around and happy to talk about the project and answer any questions you have or just generally nerd out. Thank you again!
 
 </textarea>
 <script src="./content/remark-latest.min.js"></script>
